@@ -3,14 +3,14 @@ import os, sys
 
 def run_solution_first(input: list[str]):
     highest_calories = 0
-    calories_per_elf = 0
+    calories_current_elf = 0
     for line in input:
         if line == "\n" or line == None:
-            if calories_per_elf > highest_calories:
-                highest_calories = calories_per_elf
-            calories_per_elf = 0
+            if calories_current_elf > highest_calories:
+                highest_calories = calories_current_elf
+            calories_current_elf = 0
         else:
-            calories_per_elf = calories_per_elf + int(line)
+            calories_current_elf = calories_current_elf + int(line)
     return highest_calories
 
 
@@ -22,19 +22,19 @@ def get_list_entry_default_zero(input: list[any], index: int):
 
 
 def run_solution_second(input: list[str]):
-    elves = []
-    calories_per_elf = 0
+    calories_per_elf = []
+    calories_current_elf = 0
     for line in input:
         if line == "\n" or line == None:
-            elves.append(calories_per_elf)
-            calories_per_elf = 0
+            calories_per_elf.append(calories_current_elf)
+            calories_current_elf = 0
         else:
-            calories_per_elf = calories_per_elf + int(line)
-    elves.sort(reverse=True)
+            calories_current_elf = calories_current_elf + int(line)
+    calories_per_elf.sort(reverse=True)
     return (
-        get_list_entry_default_zero(elves, 0)
-        + get_list_entry_default_zero(elves, 1)
-        + get_list_entry_default_zero(elves, 2)
+        get_list_entry_default_zero(calories_per_elf, 0)
+        + get_list_entry_default_zero(calories_per_elf, 1)
+        + get_list_entry_default_zero(calories_per_elf, 2)
     )
 
 
