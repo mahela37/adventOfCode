@@ -3,17 +3,22 @@ import solution
 
 
 class TestSolution(unittest.TestCase):
-    def test_says_hi(self):
+    def test_1(self):
+        input = ["10", "20", "30", "\n", "2", "4", "6", "\n", "30", "40", "50", None]
+        answer = 120
         self.assertEqual(
-            solution.run_solution("hi"), "hello world hi", "Should return right value"
+            solution.run_solution(input), answer, "Works with multiple elves"
         )
 
-    def test_says_bye(self):
-        self.assertEqual(
-            solution.run_solution("bye"),
-            "hello world bye",
-            "Should return right value",
-        )
+    def test_2(self):
+        input = ["10", "20", "30", None]
+        answer = 60
+        self.assertEqual(solution.run_solution(input), answer, "Works with one elf")
+
+    def test_3(self):
+        input = []
+        answer = 0
+        self.assertEqual(solution.run_solution(input), answer, "Works with no elves")
 
 
 if __name__ == "__main__":
