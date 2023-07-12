@@ -1,11 +1,11 @@
 import os, sys
 
 
-def run_solution_first(input: list[str]):
+def run_solution_first(calories: list[str]):
     highest_calories = 0
     calories_current_elf = 0
-    for line in input:
-        if line == "\n" or line == None:
+    for line in calories:
+        if line == "\n" or line == None:  # last entry for elf
             if calories_current_elf > highest_calories:
                 highest_calories = calories_current_elf
             calories_current_elf = 0
@@ -21,11 +21,11 @@ def get_list_entry_default_zero(input: list[any], index: int):
         return 0
 
 
-def run_solution_second(input: list[str]):
+def run_solution_second(calories: list[str]):
     calories_per_elf = []
     calories_current_elf = 0
-    for line in input:
-        if line == "\n" or line == None:
+    for line in calories:
+        if line == "\n" or line == None:  # last entry for elf
             calories_per_elf.append(calories_current_elf)
             calories_current_elf = 0
         else:

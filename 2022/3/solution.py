@@ -7,10 +7,10 @@ def get_char_priority(character: str):
     return ord(character) - 96
 
 
-def run_solution_first(input: list[str]):
+def run_solution_first(rucksacks: list[str]):
     sum_priorities = 0
 
-    for rucksack in input:
+    for rucksack in rucksacks:
         num_items_per_compartment = int(len(rucksack) / 2)
         first_compartment = set(rucksack[:num_items_per_compartment])
         second_compartment = set(rucksack[num_items_per_compartment:])
@@ -22,17 +22,14 @@ def run_solution_first(input: list[str]):
     return sum_priorities
 
 
-def run_solution_second(input: list[str]):
+def run_solution_second(rucksacks: list[str]):
     sum_priorities = 0
     i = 0
 
-    while i < len(input):
-        first_rucksack = set(input[i])
-        second_rucksack = set(input[i + 1])
-        third_rucksack = set(input[i + 2])
-        common_items = first_rucksack.intersection(second_rucksack).intersection(
-            third_rucksack
-        )
+    while i < len(rucksacks):
+        common_items = set(rucksacks[i])
+        for j in range(1, 3):
+            common_items = common_items.intersection(set(rucksacks[i + j]))
 
         for item in common_items:
             sum_priorities = sum_priorities + get_char_priority(item)
