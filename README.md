@@ -2,7 +2,7 @@
 
 Challenges from https://adventofcode.com/
 
-The challenges are sorted by year, and by day. Each day has three files:
+The challenges are sorted by year, and by day. Each day has at least three files:
 
 1. Input to the challenge
 2. Solution to the challenge
